@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "telegram-community-migrator"
+version = "1.0.0"
+description = "Local, permission-aware Telegram community migration CLI"
+requires-python = ">=3.11"
+dependencies = ["Telethon==1.45.0", "typer==0.20.0", "rich>=14,<16"]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10"]
+
+[project.scripts]
+telegram-migrate = "telegram_migrate.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
